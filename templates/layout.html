@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="/static/css/plugins/font-awesome.min.css">
     <link rel="stylesheet" href="/static/css/plugins/menu.css">
     <link rel="stylesheet" href="/static/css/plugins/prism.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/static/css/mm-vertical.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
+
   </head>
 
 <body>
@@ -50,19 +54,21 @@
               </ul>
             </li>
           </ul> -->
+          <nav class="sidebar-nav">
           <ul class="metismenu" id="menu">
-            <li >
-              <a class="has-arrow" href="#" aria-expanded="true">用户管理</a>
-              <ul id="navsidebar" class="nav nav-sidebar" aria-expanded="true">
+            <li>
+              <a class="has-arrow" href="#"><span class="fa fa-fw fa-github fa-lg"></span>
+              用户管理</a>
+              <ul id="nav1sidebar" aria-expanded="true">
                 <li><a href="/user">用户</a></li>
                 <li><a href="/idc">机房</a></li>
-                <li><a href="/pc">机器</a></li>
+                <li><a href="/pc"><span class="fa fa-fw fa-star"></span>机器</a></li>
               </ul>
             </li>
 
-            <li class="active">
-              <a class="has-arrow" href="#" aria-expanded="true">机房管理</a>
-              <ul id="nav1sidebar" class="nav nav-sidebar" aria-expanded="true">
+            <li>
+              <a class="has-arrow" href="#" aria-expanded="false">机房管理</a>
+              <ul aria-expanded="false">
                 <li><a href="/idc">baidu</a></li>
                 <li><a href="/pc">eastmoney</a></li>
                 
@@ -70,8 +76,13 @@
             </li>
 
           </ul>
+          </nav>
 
        </div>
+
+      
+
+
        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header" id='page-header-title'></h1>
                 {% block body %}
@@ -90,6 +101,8 @@
     <script src="/static/js/plugins/metisMenu.js"></script>
     <script src="/static/js/plugins/metisMenu.min.js"></script>
     <script src="/static/js/plugins/prism.min.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-noty/2.4.1/packaged/jquery.noty.packaged.min.js"></script>
     <script>
        <!--导航条加标色-->
        var path = location.pathname
@@ -103,7 +116,7 @@
        $("#page-header-title").html($page.html())
 
        $("#menu").metisMenu({
-          toggle:false
+          toggle:true
        })
     </script>
     {% block js %}
