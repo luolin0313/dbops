@@ -14,6 +14,6 @@ def create_app(config_name):
 
     # 注册users蓝本
     from users.views import user_page
-    app.register_blueprint(user_page, url_prefix='/log')
+    app.register_blueprint(user_page, url_prefix='/user')
 
     return app
