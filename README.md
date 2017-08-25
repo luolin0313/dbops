@@ -1,2 +1,0 @@
-# dbops
-Database system platform
