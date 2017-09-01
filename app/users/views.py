@@ -4,7 +4,7 @@ import sys
 sys.path.insert(0, '..')
 # from utils import dbutil
 import json
-from flask import render_template, Blueprint, redirect, request
+from flask import render_template, Blueprint, redirect, request, jsonify
 from app.models import User
 
 
@@ -29,10 +29,12 @@ def userdel():
     print row_id
     return 'ok'
 
-# @user_page.route('/listapi')
-# def listapi():
-#     res = User.query.all()
-#     data = tuple(res)
-#     # print data
-#     # print type(res)
-#     return render_template('testapi.html', users=res)
+
+@user_page.route('/listapi')
+def listapi():
+    data = User.query.all()
+    # res = [{col: getattr(d, col) for col in cols} for d in data]
+    res = [d.__dict__ for d in data]
+    print res
+    # return jsonify(result=res)
+    return 'ok'

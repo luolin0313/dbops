@@ -15,5 +15,8 @@ def create_app(config_name):
     # 注册users蓝本
     from users.views import user_page
     app.register_blueprint(user_page, url_prefix='/user')
+    # 注册api
+    from api.services import api
+    app.register_blueprint(api, url_prefix='/api')
 
     return app
