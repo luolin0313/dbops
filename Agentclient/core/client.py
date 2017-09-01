@@ -30,15 +30,13 @@ class ClientHandle:
         '''
         从监控服务器中加载最新的监控配置
         '''
-        request_type = settings.configs['urls']['get_configs'][1]
-        url = "%s/%s" % (settings.configs['urls']
-                         ['get_configs'][0], settings.configs['Hostid'])
+        request_type = settings.configs['urls']['service_report'][1]  # GET/POST
+        url = "%s" % (settings.configs.get('urls').get(
+            'service_report')[0])  # restful api
         latest_configs = self.url_request(request_type, url)
-        # latest_configs = json.loads(latest_configs)
-        # self.monitored_services.update(latest_configs)
-
-        # print monitored_services
-        print request_type, url
+        latest_configs = json.loads(latest_configs)
+        self.monitored_services.update(latest_configs)
+        return monitored_services
 
     def forever_run(self):
         '''
@@ -47,10 +45,25 @@ class ClientHandle:
         pass
 
     def url_request(self, request_type, url):
-        pass
+        # pass
+        # http://localhost:9092/api/mem?host_ip=192.168.137.12&mem_ava=128&insert_time=1484875998
+        # url_pre ="http://%s:%s/%s"%(localhost,port,'api/mem')
+        url_pre = "http://%s:%s/%s" % (settings.configs.get('Serverip'),
+                                       settings.configs.get('Serverport'),
+                                       'url')
+
+        if request_type in ('get', 'GET'):
+            print url_pre + 'get'
+        elif request_type in ('post', 'POST'):
+            print url_pre + 'post'
 
 
-# cc = ClientHandle()
-# cc.load_latest_config()
+cc = ClientHandle()
+print cc.url_request()
+# print cc.load_latest_config()
 
-# print settings.configs.get('Hostid')
+
+# url = "%s" % (settings.configs.get('urls').get('service_report')[0])
+# print url
+# request_type = settings.configs['urls']['service_report'][1]
+# print request_type

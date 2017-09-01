@@ -9,8 +9,8 @@ configs = {
     'Serverip': 'localhost',
     'Serverport': 9092,
     'urls': {
-        'get_configs': ['api/config', 'get'],
-        'service_report': ['api/report/', 'post']
+        # 'get_configs': ['api/config', 'get'],
+        'service_report': ['api/mem', 'post']
     },
     'Requesttimeout': 30,
     'ConfigUpdateInterval': 300  # 5 mins as default
