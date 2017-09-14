@@ -10,7 +10,19 @@ configs = {
     'Serverport': 9092,
     'urls': {
         # 'get_configs': ['api/config', 'get'],
-        'service_report': ['api/mem', 'post']
+        # 'service_report': [('api/mem', 'post'), ('api/cpu', 'post')]
+        'service_report': [
+            {
+                'service_name': 'api/mem',
+                'type': 'post',
+                'monitor_interval': 300  # 5mins as default
+            },
+            {
+            	'service_name':'api/cpu',
+            	'type':'post',
+            	'monitor_interval': 300 # 5 mins as default
+            }
+        ]
     },
     'Requesttimeout': 30,
     'ConfigUpdateInterval': 300  # 5 mins as default

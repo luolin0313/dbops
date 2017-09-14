@@ -3,6 +3,7 @@
 import time
 from utils import logutil
 
+from flask import Flask
 try:
     1 / 0
 except Exception, e:
