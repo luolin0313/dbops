@@ -15,17 +15,17 @@ configs = {
             {
                 'service_name': 'api/mem',
                 'type': 'post',
-                'monitor_interval': 300  # 5mins as default
-            },
-            {
-            	'service_name':'api/cpu',
-            	'type':'post',
-            	'monitor_interval': 300 # 5 mins as default
+                'monitor_interval': 300,  # 5mins as default
+                'last_invoke_time': 0
             }
-        ]
+            #,
+            #{
+            #   'service_name':'api/cpu',
+            #   'type':'post',
+            #   'monitor_interval': 300 # 5 mins as default
+            #}
+        ]   #
     },
     'Requesttimeout': 30,
     'ConfigUpdateInterval': 300  # 5 mins as default
 }
-
-# print configs.get('Hostid')

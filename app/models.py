@@ -40,3 +40,9 @@ class Hw_mem(db.Model):
 
     def __repr__(self):
         return '<Hw_mem %r %r %r %r' % (self.id, self.host_ip, self.mem_ava, self.insert_time)
+
+class cpu_info(db.Model):
+    # cpu统计内容
+    __tablename__='cpu_info'
+    id = db.Column(db.Integer,primary_key=True)
+    host_ip = db.Column(db.String(15), nullable=False)

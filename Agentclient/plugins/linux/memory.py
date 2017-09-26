@@ -12,4 +12,4 @@ def monitor():
     dt = int(time.time())
 
     obj = {'mem_ava': mem_mb, 'insert_time': dt}
-    # return obj
+    return obj

@@ -1,14 +1,20 @@
 # encoding:utf-8
 
-from linux import memory
+from linux import memory,cpu
 import time
 
 
-def get_linux_mem():
+def mem():
     return memory.monitor()
 
 
+
+def get_cpu_status():
+    return  cpu.cpu_stats()
+
 # if __name__ == '__main__':
 #     while True:
-#         get_linux_mem()
+#         # print mem()
+#         print  get_cpu_status()
 #         time.sleep(1)
+
